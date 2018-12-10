@@ -12,7 +12,7 @@
       <!-- <div v-for="card in player.hand">
         <p>{{card.name}}</p>
       </div> -->
-      <div class="card" v-for="card in game.player.hand" style="width: 12rem;">
+      <div @click=" setActiveCard(card.id)" class="card" v-for="card in game.player.hand" style="width: 12rem;">
         <div class="card-body playercard">
           <h6 class="card-title">{{card.name}}</h6>
           <h6 class="card-image"><img class="image-size" :src="card.img" alt=""></h6>
@@ -41,7 +41,10 @@
       }
     },
     methods: {
+      setActiveCard(id) {
 
+        this.$store.dispatch("setActivePlayerCard", id);
+      }
     }
   }
 

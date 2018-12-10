@@ -9,11 +9,13 @@
 
     <div>
       <div class="row mt-5 justify-content-around">
-        <div @click=" activeOppCard.id=card.id" class="card" v-if="activeOppCard" v-for="card in game.opponent.hand"
-          :key="card.id" style="width: 12rem;" :class="setBorder(card.id)">
+        <div @click=" setActiveCard(card.id)" class="card" v-if="activeOppCard" v-for="card in game.opponent.hand" :key="card.id"
+          style="width: 12rem;" :class="setBorder(card.id)">
           <!-- v-if for when active player show card -->
-          <!-- <img src="../assets/gamecard.png" class="fill" alt=""> -->
-          <div class="card-body oppcard border rounded m-2">
+          <img src="../assets/gamecard.png" class="fill" alt="" v-if="!card.visible">
+
+          <div class="card-body oppcard border rounded m-2 " v-else>
+            <!-- v-else above -->
             <h6 class="card-title">{{card.name}}</h6>
             <h6 class="card-image"><img class="image-size" :src="card.img" alt=""></h6>
             <div class="d-flex justify-content-around">
@@ -53,9 +55,8 @@
           return "active-card";
         }
       },
-      sendActiveOpponent() {
-        debugger
-        this.$store.dispatch("setActiveOpponent", this.activeOppCard);
+      setActiveCard(id) {
+        this.$store.dispatch("setActiveOpponent", id);
       }
     }
   }
@@ -79,5 +80,10 @@
 
   .active-card {
     outline: 4px solid green;
+  }
+
+  .fill {
+    height: 300px;
+    width: auto
   }
 </style>
