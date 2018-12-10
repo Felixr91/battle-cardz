@@ -7,6 +7,7 @@
         <h1>Select Cards for Battle!</h1>
       </div>
     </div> -->
+    <h1 v-if="gameOver()">Game Over!</h1>
   </div>
 </template>
 
@@ -29,6 +30,10 @@
       },
       gameId() {
         return this.$store.state.game.id
+      },
+      gameOver() {
+        console.log(this.$store.state.game.over)
+        return this.$store.state.game.over
       }
     },
     methods: {

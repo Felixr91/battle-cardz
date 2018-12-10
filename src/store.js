@@ -17,7 +17,7 @@ export default new Vuex.Store({
     //   playerCardId: ""
     // },
     opponentCardId: '',
-    playerCardId: ''
+    playerCardId: '',
   },
   mutations: {
     CREATEGAME(state, game) {
