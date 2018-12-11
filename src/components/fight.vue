@@ -1,13 +1,17 @@
 <template>
   <div class="">
-    <h1>Click to Attack!</h1>
+    <p v-show="oppCardId && playerCardId">Click to Attack!</p>
     <button v-show="oppCardId && playerCardId" @click="attack">Attack!</button>
     <!-- <div class="row">
       <div class="col-12">
         <h1>Select Cards for Battle!</h1>
       </div>
     </div> -->
-    <h1 v-if="gameOver()">Game Over!</h1>
+    <h1 v-if="gameStatus">Game Over!</h1>
+    <!-- <h1 v-if="winner==playerName">You Win!</h1>
+    <h1 v-if="winner==oppName">You Lose!</h1> -->
+    <h1 v-if="winner">{{winner}} wins!</h1>
+
   </div>
 </template>
 
@@ -22,16 +26,28 @@
     computed: {
       oppCardId() {
         console.log('activeCards computed running')
+        console.log('this.$store.state.opponentCardId')
         // return this.$store.state.activeCards
         return this.$store.state.opponentCardId
       },
       playerCardId() {
         return this.$store.state.playerCardId
       },
+      // playerName() {
+      //   this.$store.state.game.player.name
+      // },
+      // oppName() {
+      //   this.$store.state.game.opponenet.name
+      // },
+
       gameId() {
         return this.$store.state.game.id
       },
-      gameOver() {
+      winner() {
+        console.log(this.$store.state.game.winner)
+        return this.$store.state.game.winner
+      },
+      gameStatus() {
         console.log(this.$store.state.game.over)
         return this.$store.state.game.over
       }
