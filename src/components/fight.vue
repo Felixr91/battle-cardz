@@ -1,5 +1,6 @@
 <template>
   <div class="">
+
     <p v-show="oppCardId && playerCardId">Click to Attack!</p>
     <button v-show="oppCardId && playerCardId" @click="attack">Attack!</button>
     <!-- <div class="row">
@@ -12,6 +13,10 @@
     <h1 v-if="winner==oppName">You Lose!</h1> -->
     <h1 v-if="winner">{{winner}} wins!</h1>
 
+    <div v-if="gameStatus">
+      <h6>Play Again!</h6>
+      <button @click="getGame">Play!</button>
+    </div>
   </div>
 </template>
 
@@ -63,6 +68,9 @@
           }
         }
         this.$store.dispatch('attack', payload)
+      },
+      getGame() {
+        this.$store.dispatch('getGame', this.gameConfig)
       }
     }
   }
