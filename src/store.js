@@ -65,6 +65,7 @@ export default new Vuex.Store({
         .then(res => {
           commit("CREATEGAME", res.data.game)
         })
-    }
+    }, 
+
   }
 })
