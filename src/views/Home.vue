@@ -13,12 +13,15 @@
       </div>
     </form>
     <!-- <img src="/src/assets/robot.png" alt=""> -->
-    <h4 class="mt-5 mb-2">How to play</h4>
-    <p>Enter a name to begin. In game view, adversary cards are dealt face down
-      and
+    <h4 class="mt-5 mb-3">How to play</h4>
+    <p>Enter a name to begin.</p>
+    <p>Adversary cards are displayed in the upper section of the game view, are dealt face down,
+      and are
       revealed once they have been attacked. To commence an attack, select an opponent card, then select one of your
       cards
-      and click on the "FIGHT!" button, adn the two cards will attack each other simulatenously. The cards have health,
+      and click the "FIGHT!" button. When the fight button is clicked the two cards will attack each other
+      simulatenously.</p>
+    <p>The cards have health,
       attack
       and
       defense levels printed on them. Any incoming attack in excess of a card's defense value will decrement its
@@ -26,6 +29,8 @@
       a card reaches zero health, it is considered dead and removed from the game. Each player is dealt tens cards to
       start
       the game. The last player with cards remaining is the winner.</p>
+
+    <h4>About</h4>
 
     <p>This game was built during Week 6 of the Boise Codeworks Full-Stack Immersive Course. The purpose was to gain
       experience using Vue.js as a front-end framework. The application utilizes an API built by the Boise Codeworks
