@@ -13,7 +13,7 @@
         <p>{{card.name}}</p>
       </div> -->
       <div @click=" setActiveCard(card.id)" class="card" v-for="card in game.player.hand" style="width: 12rem;">
-        <div class="card-body playercard">
+        <div class="card-body playercard rounded">
           <h6 class="card-title">{{card.name}}</h6>
           <h6 class="card-image"><img class="image-size" :src="card.img" alt=""></h6>
           <div class="d-flex justify-content-around">
@@ -58,5 +58,8 @@
 
   .playercard {
     background-color: aquamarine;
+    height: 300px;
+    width: 190px;
+    padding-top: 70px;
   }
 </style>
